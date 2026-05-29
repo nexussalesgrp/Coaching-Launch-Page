@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Sales Group — MSP Sales Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0a;
+    color: #f0e6d0;
+    padding: 56px 24px;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  /* Gold gradient accent line at top */
+  .top-accent {
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, #C8893A, #f0c97a, #C8893A);
+    margin-bottom: 40px;
+    border-radius: 2px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #C8893A;
+    margin-bottom: 16px;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #f5ead8;
+    margin-bottom: 18px;
+  }
+
+  .headline em {
+    font-style: italic;
+    background: linear-gradient(90deg, #f0c97a, #C8893A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .sub {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #b8a898;
+    margin-bottom: 28px;
+  }
+
+  .sub strong {
+    color: #e8d5b0;
+  }
+
+  /* Video gap */
+  .video-gap {
+    width: 100%;
+    height: 360px;
+    margin-bottom: 32px;
+  }
+
+  /* Body copy */
+  .body-copy {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #9e8e7c;
+    border-left: 2px solid #C8893A;
+    padding-left: 18px;
+    margin-bottom: 40px;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, #C8893A, #2a1f12, transparent);
+    margin: 40px 0;
+  }
+
+  /* CTA box */
+  .cta-box {
+    background: #111008;
+    border: 1px solid #2e2214;
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gold glow effect top-right corner of CTA box */
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(200,137,58,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #f5ead8;
+    margin-bottom: 6px;
+  }
+
+  .cta-sub {
+    font-size: 13px;
+    color: #7a6a58;
+    margin-bottom: 24px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .field label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7a6a58;
+  }
+
+  .field input,
+  .field select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    border: 1px solid #2e2214;
+    border-radius: 8px;
+    background: #0e0c08;
+    color: #f0e6d0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .field input::placeholder { color: #3a3028; }
+  .field select option { background: #0e0c08; color: #f0e6d0; }
+
+  .field input:focus,
+  .field select:focus {
+    border-color: #C8893A;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #C8893A, #f0c97a, #B07830);
+    color: #0a0a0a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+
+  .submit-btn:hover { opacity: 0.88; }
+
+  @media (max-width: 480px) {
+    .form-row { grid-template-columns: 1fr; }
+    .headline { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-accent"></div>
+
+  <p class="hero-label">MSP Sales Coaching</p>
+
+  <h1 class="headline">
+    Are you struggling to convert prospects<br>
+    into a <em>formal sales process?</em>
+  </h1>
+
+  <p class="sub">
+    Join our MSP Sales 1-on-1 or Group Coaching to transform you or your sales rep
+    from an <strong>Order Taker</strong> to an industry leading <strong>Closer</strong>.
+  </p>
+
+  <!-- INSERT YOUR VIDEO HERE -->
+  <div class="video-gap"></div>
+
+  <p class="body-copy">
+    Train and learn from an industry leading Closer who rarely ever received inbound leads —
+    and had to convert as many prospects as possible from every meeting. You'll receive process,
+    tactics, and actionable insights from someone who's walked the path.
+  </p>
+
+  <hr class="divider">
+
+  <div class="cta-box">
+    <p class="cta-title">I'm ready to be a Closer</p>
+    <p class="cta-sub">Grab your copy of the MMSM Book of Questions</p>
+
+    <div class="form-row">
+      <div class="field">
+        <label>First name</label>
+        <input type="text" placeholder="Jane">
+      </div>
+      <div class="field">
+        <label>Last name</label>
+        <input type="text" placeholder="Smith">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" placeholder="jane@company.com">
+    </div>
+
+    <div class="field">
+      <label>Company <span style="font-weight:400; text-transform:none; letter-spacing:0;">(optional)</span></label>
+      <input type="text" placeholder="Acme IT">
+    </div>
+
+    <div class="field">
+      <label>What's your biggest challenge?</label>
+      <select>
+        <option value="" disabled selected>Select one...</option>
+        <option>I'm struggling to move prospects from our first appointment into a sales process</option>
+        <option>I keep getting hit with the same price questions</option>
+        <option>I keep hearing "Send me some info and I'll pass it to the owner"</option>
+        <option>All the above or something else</option>
+      </select>
+    </div>
+
+    <button class="submit-btn">Get the Book of Questions →</button>
+  </div>
+
+</div>
+</body>
+</html>
