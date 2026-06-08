@@ -114,10 +114,7 @@
       color: #fff;
       margin-bottom: 24px;
     }
-    h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
+    h1 em { font-style: normal; color: var(--gold); }
 
     .hero-sub {
       font-size: 1.08rem;
@@ -137,10 +134,7 @@
       border-bottom: 1px solid var(--border);
       padding: 60px 40px;
     }
-    .video-inner {
-      max-width: 860px;
-      margin: 0 auto;
-    }
+    .video-inner { max-width: 860px; margin: 0 auto; }
     .video-gap {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -472,7 +466,7 @@
           body: JSON.stringify({ firstName, lastName, email, company, challenge })
         });
         msg.style.color = 'var(--gold)';
-        msg.textContent = "You're in! Check your inbox for the Book of Questions.";
+        msg.textContent = "You're In!";
         msg.style.display = 'block';
         btn.textContent = 'Submitted ✓';
       } catch (err) {
