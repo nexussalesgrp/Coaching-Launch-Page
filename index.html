@@ -37,7 +37,6 @@
       flex-direction: column;
     }
 
-    /* ── NOISE TEXTURE ── */
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +47,6 @@
       opacity: 0.35;
     }
 
-    /* ── TOPBAR ── */
     .topbar {
       border-bottom: 1px solid var(--border);
       padding: 14px 40px;
@@ -79,7 +77,6 @@
     }
     .topbar-cta:hover { background: var(--gold-light); }
 
-    /* ── HERO ── */
     .hero {
       padding: 90px 40px 70px;
       max-width: 900px;
@@ -133,7 +130,6 @@
     }
     .hero-sub strong { color: var(--gold-light); font-weight: 600; }
 
-    /* ── VIDEO BLOCK ── */
     .video-section {
       width: 100%;
       background: var(--surface);
@@ -153,21 +149,7 @@
       position: relative;
       overflow: hidden;
     }
-    .video-gap::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(201,168,76,0.04) 0%, transparent 70%);
-    }
-    .video-placeholder-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.2em;
-      color: rgba(201,168,76,0.2);
-      text-align: center;
-    }
 
-    /* ── BODY COPY ── */
     .body-section {
       padding: 70px 40px;
       max-width: 900px;
@@ -191,7 +173,6 @@
       background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 30%, var(--gold) 50%, var(--gold-dim) 70%, transparent 100%);
     }
 
-    /* ── FORM SECTION ── */
     .form-section {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -297,7 +278,6 @@
     .form-submit:hover { background: var(--gold-light); }
     .form-submit:active { transform: scale(0.99); }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 28px 40px;
@@ -336,18 +316,13 @@
       margin-top: 4px;
     }
 
-    /* ── ANIMATIONS ── */
     .fade-up {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .topbar { padding: 14px 20px; }
       .hero { padding: 70px 24px 50px; }
@@ -362,28 +337,23 @@
 </head>
 <body>
 
-  <!-- TOPBAR -->
   <header class="topbar">
     <span class="topbar-brand">Nexus Sales Group</span>
     <a href="#ready" class="topbar-cta">I'm Ready to Be a Closer</a>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="eyebrow fade-up">MSP Sales Coaching</div>
-
     <h1 class="fade-up">
       Are You Struggling to Convert<br />
       Prospects Into a <em>Formal Sales Process?</em>
     </h1>
-
     <p class="hero-sub fade-up">
       Join our MSP Sales 1-on-1 or Group Coaching to transform you or your sales rep
       from an <strong>Order Taker</strong> to an industry leading <strong>Closer</strong>.
     </p>
   </section>
 
-  <!-- VIDEO -->
   <div class="video-section">
     <div class="video-inner fade-up">
       <div class="video-gap">
@@ -399,7 +369,6 @@
     </div>
   </div>
 
-  <!-- BODY COPY -->
   <div class="body-section">
     <p class="body-copy fade-up">
       Train and learn from an industry leading Closer who rarely ever received inbound leads —
@@ -410,7 +379,6 @@
 
   <div class="gold-rule"></div>
 
-  <!-- FORM -->
   <section class="form-section" id="ready">
     <div class="form-inner">
       <div class="section-label fade-up">Get Started</div>
@@ -420,27 +388,27 @@
       <div class="form-row fade-up">
         <div class="form-field">
           <label>First Name</label>
-          <input type="text" placeholder="Jane" />
+          <input id="firstName" type="text" placeholder="Jane" />
         </div>
         <div class="form-field">
           <label>Last Name</label>
-          <input type="text" placeholder="Smith" />
+          <input id="lastName" type="text" placeholder="Smith" />
         </div>
       </div>
 
       <div class="form-field fade-up">
         <label>Email</label>
-        <input type="email" placeholder="jane@company.com" />
+        <input id="email" type="email" placeholder="jane@company.com" />
       </div>
 
       <div class="form-field fade-up">
-        <label>Company <span style="font-weight:300; text-transform:none; letter-spacing:0; color:var(--muted);">(optional)</span></label>
-        <input type="text" placeholder="Acme IT" />
+        <label>Company</label>
+        <input id="company" type="text" placeholder="Acme IT" />
       </div>
 
       <div class="form-field fade-up">
         <label>What's Your Biggest Challenge?</label>
-        <select>
+        <select id="challenge">
           <option value="" disabled selected>Select one...</option>
           <option>I'm struggling to move prospects from our first appointment into a sales process</option>
           <option>I keep getting hit with the same price questions</option>
@@ -449,11 +417,11 @@
         </select>
       </div>
 
-      <button class="form-submit fade-up">Get the Book of Questions →</button>
+      <button id="submitBtn" class="form-submit fade-up">Submit</button>
+      <p id="formMsg" style="margin-top:16px; font-size:0.85rem; color:var(--gold); display:none; text-align:center;"></p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <span class="footer-brand">Nexus Sales Group</span>
     <ul class="footer-links">
@@ -474,6 +442,47 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const FLOW_URL = 'https://default6d5cb88f60d141c582a0cb287ee7c0.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/221c1d792d414e11a4fbb38d7deb74db/triggers/manual/paths/invoke?api-version=1';
+
+    document.getElementById('submitBtn').addEventListener('click', async () => {
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName  = document.getElementById('lastName').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const company   = document.getElementById('company').value.trim();
+      const challenge = document.getElementById('challenge').value;
+      const msg       = document.getElementById('formMsg');
+      const btn       = document.getElementById('submitBtn');
+
+      if (!firstName || !email || !challenge) {
+        msg.style.color = '#e57373';
+        msg.textContent = 'Please fill in First Name, Email, and your Biggest Challenge.';
+        msg.style.display = 'block';
+        return;
+      }
+
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+
+      try {
+        await fetch(FLOW_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          body: JSON.stringify({ firstName, lastName, email, company, challenge })
+        });
+        msg.style.color = 'var(--gold)';
+        msg.textContent = "You're in! Check your inbox for the Book of Questions.";
+        msg.style.display = 'block';
+        btn.textContent = 'Submitted ✓';
+      } catch (err) {
+        msg.style.color = '#e57373';
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.style.display = 'block';
+        btn.textContent = 'Submit';
+        btn.disabled = false;
+      }
+    });
   </script>
 
 </body>
