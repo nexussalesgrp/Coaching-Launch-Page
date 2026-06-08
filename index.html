@@ -253,8 +253,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    const FLOW_URL = 'https://default6d5cb88f60d141c582a0cb287ee7c0.6e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/221c1d792d414e11a4fbb38d7deb74db/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WxIkwopGbK5H_vnKcM914ca_cjjFUmuGiKeWNGjJnsg';
-
     document.getElementById('submitBtn').addEventListener('click', async () => {
       const firstName = document.getElementById('firstName').value.trim();
       const lastName  = document.getElementById('lastName').value.trim();
@@ -275,16 +273,20 @@
       btn.disabled = true;
 
       try {
-        await fetch(FLOW_URL, {
+        const response = await fetch('https://formspree.io/f/maqzodyr', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ firstName, lastName, email, company, challenge })
         });
-        msg.style.color = 'var(--gold)';
-        msg.textContent = "You're In!";
-        msg.style.display = 'block';
-        btn.textContent = 'Submitted ✓';
+
+        if (response.ok) {
+          msg.style.color = 'var(--gold)';
+          msg.textContent = "You're In!";
+          msg.style.display = 'block';
+          btn.textContent = 'Submitted ✓';
+        } else {
+          throw new Error('Server error');
+        }
       } catch (err) {
         msg.style.color = '#e57373';
         msg.textContent = 'Something went wrong. Please try again.';
